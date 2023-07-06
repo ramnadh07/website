@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to the Juniors' Batch</title>
+  <style>
+    /* CSS Styles */
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    
+    .header {
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    .welcome-message {
+      font-size: 40px;
+      color: #333;
+    }
+    
+    /* Add your animations and styling for flyers here */
+    
+    .games {
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    .game {
+      display: inline-block;
+      margin: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Add your styling for games here */
+    
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 class="welcome-message">Hearty and Joyful Welcome Juniors!</h1>
+    <!-- Add your animation and flyer elements here -->
+  </div>
+  
+  <div class="games">
+    <h2>Mini Games</h2>
+    <div class="game">
+      <html>
+<head>
+  <title>Guess the Number</title>
+  <style>
+    /* Guess the Number - CSS Styling */
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    input[type="number"] {
+      padding: 5px;
+      width: 100px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 5px 10px;
+    }
+
+    #result {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess the Number</h1>
+  <p>Guess a number between 1 and 100:</p>
+  <input type="number" id="guessInput">
+  <button onclick="checkGuess()">Submit</button>
+  <p id="result"></p>
+
+  <script>
+    var secretNumber = Math.floor(Math.random() * 100) + 1;
+    var attempts = 5;
+
+    function checkGuess() {
+      var guess = parseInt(document.getElementById("guessInput").value);
+      var result = document.getElementById("result");
+
+      if (isNaN(guess)) {
+        result.textContent = "Invalid input. Please enter a number.";
+        return;
+      }
+
+      if (guess === secretNumber) {
+        result.textContent = "Congratulations! You guessed the correct number.";
+      } else if (guess < secretNumber) {
+        result.textContent = "Too low. Try again!";
+      } else {
+        result.textContent = "Too high. Try again!";
+      }
+
+      attempts--;
+      if (attempts === 0) {
+        result.textContent += " Game over. The number was " + secretNumber + ".";
+        document.getElementById("guessInput").disabled = true;
+      }
+    }
+  </script>
+</body>
+</html>
+    </div>
+    <div class="game">
+      <html>
+<head>
+  <title>Word Jumble</title>
+  <style>
+    /* Word Jumble - CSS Styling */
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #jumbleWord {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+      width: 150px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 5px 10px;
+    }
+
+    #result {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Word Jumble</h1>
+  <p>Unscramble the letters to form a word:</p>
+  <p id="jumbleWord"></p>
+  <input type="text" id="guessInput">
+  <button onclick="checkGuess()">Submit</button>
+  <p id="result"></p>
+
+  <script>
+    var words = ["apple", "banana", "cherry", "grape", "orange"];
+    var randomWord = words[Math.floor(Math.random() * words.length)];
+    var jumbleWord = jumble(randomWord);
+    document.getElementById("jumbleWord").textContent = jumbleWord;
+
+    function jumble(word) {
+      var shuffledWord = "";
+      var wordArray = word.split('');
+      while (wordArray.length > 0) {
+        shuffledWord += wordArray.splice(Math.floor(Math.random() * wordArray.length), 1);
+      }
+      return shuffledWord;
+    }
+
+    function checkGuess() {
+      var guess = document.getElementById("guessInput").value.toLowerCase();
+      var result = document.getElementById("result");
+
+      if (guess === randomWord) {
+        result.textContent = "Congratulations! You unscrambled the word.";
+      } else {
+        result.textContent = "Incorrect guess. Try again!";
+      }
+    }
+  </script>
+</body>
+</html>
+    </div>
+    <div class="game">
+     <html>
+<head>
+  <title>Whack-a-Mole</title>
+  <style>
+    /* Whack-a-Mole - CSS Styling */
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #gameArea {
+      margin-top: 20px;
+    }
+
+    .hole {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      border: 2px solid #888;
+      display: inline-block;
+      margin: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .mole {
+      width: 80px;
+      height: 80px;
+      background-color: #888;
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Whack-a-Mole</h1>
+  <p>Click on the moles as quickly as possible:</p>
+  <div id="gameArea"></div>
+
+  <script>
+    var gameArea = document.getElementById("gameArea");
+    var score = 0;
+    var timeLeft = 30;
+    var timerId;
+
+    function startGame() {
+      score = 0;
+      timeLeft = 30;
+      gameArea.innerHTML = "";
+      clearInterval(timerId);
+      updateScore();
+
+      for (var i = 0; i < 9; i++) {
+        var hole = document.createElement("div");
+        hole.className = "hole";
+        hole.onclick = whackMole;
+        gameArea.appendChild(hole);
+
+        var mole = document.createElement("div");
+        mole.className = "mole";
+        hole.appendChild(mole);
+      }
+
+      timerId = setInterval(function() {
+        var holes = gameArea.getElementsByClassName("hole");
+        var randomHole = Math.floor(Math.random() * holes.length);
+
+        hideMoles();
+        showMole(holes[randomHole]);
+      }, 1000);
+
+      setTimeout(endGame, 30000);
+    }
+
+    function hideMoles() {
+      var moles = gameArea.getElementsByClassName("mole");
+      for (var i = 0; i < moles.length; i++) {
+        moles[i].style.display = "none";
+      }
+    }
+
+    function showMole(hole) {
+      var mole = hole.getElementsByClassName("mole")[0];
+      mole.style.display = "block";
+    }
+
+    function whackMole() {
+      var mole = this.getElementsByClassName("mole")[0];
+      mole.style.display = "none";
+      score++;
+      updateScore();
+    }
+
+    function updateScore() {
+      document.getElementById("score").textContent = "Score: " + score;
+    }
+
+    function endGame() {
+      clearInterval(timerId);
+      alert("Game Over! Your final score is: " + score);
+    }
+  </script>
+
+  <button onclick="startGame()">Start Game</button>
+  <p id="score">Score: 0</p>
+  <p id="timeLeft">Time Left: 30 seconds</p>
+</body>
+</html>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Enjoy your time!</p>
+  </div>
+</body>
+</html>
